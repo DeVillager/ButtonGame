@@ -3,7 +3,7 @@ import './App.css';
 
 class App extends Component {
   // Initialize state
-  state = { passwords: [] }
+  state = { passwords: [], count: 0 }
 
   // Fetch passwords after first mount
   componentDidMount() {
@@ -14,7 +14,7 @@ class App extends Component {
     // Get the passwords and store them in state
     fetch('/api/passwords')
       .then(res => res.json())
-      .then(passwords => this.setState({ passwords }));
+      .then(count => this.setState({ count }));
   }
 
   render() {
@@ -44,6 +44,7 @@ class App extends Component {
               onClick={this.getPasswords}>
               Get More
             </button>
+              <p>{this.state.count}</p>
           </div>
         ) : (
           // Render a helpful message otherwise
@@ -54,6 +55,7 @@ class App extends Component {
               onClick={this.getPasswords}>
               Try Again?
             </button>
+            <p>{this.state.count}</p>
           </div>
         )}
       </div>
