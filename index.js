@@ -12,15 +12,15 @@ app.use(express.static(path.join(__dirname, 'client/build')));
 app.get('/api/passwords', (req, res) => {
 
   // Generate some passwords
-  const passwords = Array.from(Array(count).keys()).map(i =>
-    generatePassword(12, false)
-  )
+//   const passwords = Array.from(Array(count).keys()).map(i =>
+//     generatePassword(12, false)
+//   )
   count++;
 
   // Return them as json
   res.json(count);
 
-  console.log(`Sent ${count} passwords`);
+  console.log(`Current button count ${count}`);
 });
 
 // The "catchall" handler: for any request that doesn't
