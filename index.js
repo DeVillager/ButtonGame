@@ -1,26 +1,37 @@
+// Importing modules
 const express = require('express');
+const session = require("express-session");
+const cors = require("cors")
 const path = require('path');
-var socketIO = require('socket.io');
+
+// Assign express to constant app.
 const app = express();
+
+// Setting up the buttons count to 0.
 var count = 0;
 
-var http = require('http');
-var server = http.Server(app);
-var io = socketIO(server);
+// Setting cors options.
+const corsOptions = {
+    origin: 'http://localhost:3000',
+    methods: "GET,HEAD,POST,PATCH,DELETE,OPTIONS",
+    credentials: true,
+    allowedHeaders: "Content-Type, Authorization, X-Requested-With",
+}
 
-// Serve static files from the React app
-app.use(express.static(path.join(__dirname, 'client/build')));
+// Using app using cors and setting up settings.
+app.use(cors(corsOptions))
 
-// Put all API endpoints under '/api'
+// Handling get request.
 app.get('/api', (req, res) => {
-  // Return them as json
+  // Return count as json
   res.json(count);
   console.log(`Current button count ${count}`);
 });
 
+// Handling data request which also increases the button count.
 app.get('/api/data', (req, res) => {
     count++;
-    // Return them as json
+    // Return count as json
     res.json(count);
     console.log(`Current button count ${count}`);
 });
@@ -31,13 +42,8 @@ app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname+'/client/build/index.html'));
 });
 
-// Add the WebSocket handlers
-io.on('connection', function(socket) {
-    console.log('a user connected');
-});
-
-setInterval(function() { io.sockets.emit('message', 'hi!'); }, 1000);
-
+// Assigning port to process environmental port if found, else to the port 5000.
 const port = process.env.PORT || 5000;
-server.listen(port);
+// Server starts listening on assigned port.
+app.listen(port);
 console.log(`Button game listening on ${port}`);
