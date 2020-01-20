@@ -5,7 +5,7 @@ import './App.css';
 class App extends Component {
 
   // Initialize state
-  state = { name: "default", count: 0, points: 20, pointsToNextWin: -1, win: -1 };
+  state = { count: 0, points: 20, pointsToNextWin: -1, win: -1 };
 
   // Fetch data after first mount
   componentDidMount() {

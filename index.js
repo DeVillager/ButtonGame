@@ -1,7 +1,7 @@
 // Importing modules
 const express = require('express');
-const session = require("express-session");
-const cors = require("cors")
+// const session = require("express-session");
+// const cors = require("cors")
 const path = require('path');
 
 // Assign express to constant app.
@@ -11,15 +11,15 @@ const app = express();
 var count = 0;
 
 // Setting cors options.
-const corsOptions = {
-    origin: 'http://localhost:3000',
-    methods: "GET,HEAD,POST,PATCH,DELETE,OPTIONS",
-    credentials: true,
-    allowedHeaders: "Content-Type, Authorization, X-Requested-With",
-}
+// const corsOptions = {
+//     origin: 'http://localhost:3000',
+//     methods: "GET,HEAD,POST,PATCH,DELETE,OPTIONS",
+//     credentials: true,
+//     allowedHeaders: "Content-Type, Authorization, X-Requested-With",
+// }
 
 // Using app using cors and setting up settings.
-app.use(cors(corsOptions))
+// app.use(cors(corsOptions))
 
 // Handling get request.
 app.get('/api', (req, res) => {
