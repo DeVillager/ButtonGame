@@ -7,7 +7,7 @@ class App extends Component {
   // Initialize state
   state = { count: 0, points: 20, pointsToNextWin: -1, win: -1 };
 
-  // Fetch data after first mount
+  // Fetch data after the first mount
   componentDidMount() {
     this.getData();
   }
@@ -19,12 +19,12 @@ class App extends Component {
       .then(count => this.setState({ count }));
   }
 
-  // Pushes data to server
-//   pushData = () => {
-//     fetch('/api/data')
-//     .then(res => res.json())
-//     .then(count => this.setState({ count }));
-//   }
+  // Increase counter's count in server and fetch data
+  increaseCount = () => {
+    fetch('/api/count')
+    .then(res => res.json())
+    .then(count => this.setState({ count }));
+  }
 
   // Renders the following HTML tags
   render() {
@@ -49,8 +49,8 @@ class App extends Component {
 
   //Resolves the button click.
   ResolveClick = () => {
-    // this.pushData();
-    this.getData();
+    //Get current counter count frm server.
+    this.increaseCount();
     //Point and count amount from this.state are copied temporarily for variables.
     var points = this.state.points;
     var counter = this.state.count;
