@@ -12,17 +12,17 @@ Players win points the following way:
 - Every 100. click > 40 points
 - Every 500. click > 250 points
 
-## Running the app on local server:
+## Running the app on local server
 
 First download and extract ButtonGame-master.zip.
 
-Local Server:
+### Local Server:
 - Open cmd, and navigate to ButtonGame-master/ButtonGame-master
 - To install npm run: `npm install`
 - To set up the server run: `npm start`
 - Now your server is running on port http://localhost:5000
 
-App:
+### App:
 - Open another cmd, and navigate to ButtonGame-master/ButtonGame-master/client
 - To install npm run: `npm install`
 - To start the app run: `npm start`
