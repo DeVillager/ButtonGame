@@ -20,11 +20,11 @@ class App extends Component {
   }
 
   // Pushes data to server
-  pushData = () => {
-    fetch('/api/data')
-    .then(res => res.json())
-    .then(count => this.setState({ count }));
-  }
+//   pushData = () => {
+//     fetch('/api/data')
+//     .then(res => res.json())
+//     .then(count => this.setState({ count }));
+//   }
 
   // Renders the following HTML tags
   render() {
@@ -49,7 +49,8 @@ class App extends Component {
 
   //Resolves the button click.
   ResolveClick = () => {
-    this.pushData();
+    // this.pushData();
+    this.getData();
     //Point and count amount from this.state are copied temporarily for variables.
     var points = this.state.points;
     var counter = this.state.count;

@@ -24,17 +24,18 @@ var count = 0;
 // Handling get request.
 app.get('/api', (req, res) => {
   // Return count as json
+  count++;
   res.json(count);
   console.log(`Current button count ${count}`);
 });
 
 // Handling data request which also increases the button count.
-app.get('/api/data', (req, res) => {
-    count++;
-    // Return count as json
-    res.json(count);
-    console.log(`Current button count ${count}`);
-});
+// app.get('/api/data', (req, res) => {
+//     count++;
+//     // Return count as json
+//     res.json(count);
+//     console.log(`Current button count ${count}`);
+// });
 
 // The "catchall" handler: for any request that doesn't
 // match one above, send back React's index.html file.
