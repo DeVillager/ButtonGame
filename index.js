@@ -7,6 +7,8 @@ const path = require('path');
 // Assign express to constant app.
 const app = express();
 
+app.use(express.static(path.join(__dirname, 'client/build')));
+
 // Setting up the buttons count to 0.
 var count = 0;
 
