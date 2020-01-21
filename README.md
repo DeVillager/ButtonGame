@@ -28,3 +28,5 @@ App:
 - To start the app run: `npm start`
 - Now your app is running on port http://localhost:3000
 (this should open up automatically)
+
+To terminate the app or server, enter `CTRL+C` and then `y`.
